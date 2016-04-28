@@ -1,4 +1,4 @@
-# DotNet Core Docker Demo
+# DotNet Watch Docker Demo
 
 1. First install **Docker Toolbox**: https://www.docker.com/products/docker-toolbox
 
