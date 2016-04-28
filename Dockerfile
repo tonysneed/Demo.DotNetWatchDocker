@@ -10,13 +10,8 @@ FROM microsoft/dotnet-preview
 
 MAINTAINER Anthony Sneed
 
-ENV ASPNET_ENVIRONMENT=Development
-
 # Adds location of global commands to path so that they can be run
 ENV PATH $PATH:$DNX_USER_HOME/bin
-
-# TODO: Required for dnx-watch to detect file changes on the mounted volume
-ENV MONO_MANAGED_WATCHER 1
 
 COPY . /app
 WORKDIR /app
@@ -33,4 +28,4 @@ VOLUME nuget:/root/.nuget
 EXPOSE 5000
 
 # Specify a url with a wildcard for the host name
-ENTRYPOINT ["/bin/bash", "-c", "dotnet watch -- server.urls=http://*:5000"]
+ENTRYPOINT ["/bin/bash", "-c", "dotnet watch -- --server.urls=http://*:5000 --environment=Development"]
