@@ -1,31 +1,27 @@
-# NOTE: If we try to mount a host volume with the docker run command, the chown will not work.
-#       And we will get the error: Project app does not have a lock file.
+# NOTE: A project.lock.json file must be included, otherwise you will get the following error:
+#       Project app does not have a lock file
 
-# docker build -t tonysneed/dotnet-watch-aspnet .
+# Build the image:
+# docker build -t tonysneed/dotnet-helloweb-watch .
 
-# Don't use this: docker run -d -p 5000:5000 --name dotnet-watch-aspnet -v $(pwd):/app tonysneed/dotnet-watch-aspnet
-# Use this instead: docker run -d -p 5000:5000 --name dotnet-watch-aspnet tonysneed/dotnet-watch-aspnet
+# Create and run a container:
+# docker run -d -p 5000:5000 --name dotnet-helloweb-watch -v "${PWD}:/app" tonysneed/dotnet-helloweb-watch
 
-FROM microsoft/dotnet-preview
+FROM tonysneed/dotnet-preview:1.0.0-rc2-002659
 
 MAINTAINER Anthony Sneed
 
-# Adds location of global commands to path so that they can be run
-ENV PATH $PATH:$DNX_USER_HOME/bin
-
+# Copy files to app directory
 COPY . /app
+
+# Set working directory
 WORKDIR /app
 
+# Restore NuGet packages
 RUN ["dotnet", "restore"]
 
-# Change ownership of created files to main user on host
-# Required to prevent error: 'Project app does not have a lock file'
-RUN chown -R 1000:1000 project.lock.json
-
-# Must mount volumes after changing ownership
-VOLUME nuget:/root/.nuget
-
+# Open up port
 EXPOSE 5000
 
 # Specify a url with a wildcard for the host name
-ENTRYPOINT ["/bin/bash", "-c", "dotnet watch -- --server.urls=http://*:5000 --environment=Development"]
+ENTRYPOINT ["/bin/bash", "-c", "dotnet watch -- http://*:5000 Development"]
