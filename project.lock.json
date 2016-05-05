@@ -360,6 +360,18 @@
           "lib/netstandard1.0/Microsoft.Extensions.Configuration.Abstractions.dll": {}
         }
       },
+      "Microsoft.Extensions.Configuration.EnvironmentVariables/1.0.0-rc2-20812": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "1.0.0-rc2-20812"
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.Extensions.Configuration.EnvironmentVariables.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.Extensions.Configuration.EnvironmentVariables.dll": {}
+        }
+      },
       "Microsoft.Extensions.DependencyInjection/1.0.0-rc2-20812": {
         "type": "package",
         "dependencies": {
@@ -2755,6 +2767,18 @@
         "Microsoft.Extensions.Configuration.Abstractions.nuspec",
         "lib/netstandard1.0/Microsoft.Extensions.Configuration.Abstractions.dll",
         "lib/netstandard1.0/Microsoft.Extensions.Configuration.Abstractions.xml"
+      ]
+    },
+    "Microsoft.Extensions.Configuration.EnvironmentVariables/1.0.0-rc2-20812": {
+      "sha512": "ez5Zh6bAEQGE9S5at/nOzzyL/TJmnW1PNI/KycQlY/RNZruNyl3FymCyDv/GR8JJ3n8rNowQRdTz7AxyrwT6zA==",
+      "type": "package",
+      "files": [
+        "Microsoft.Extensions.Configuration.EnvironmentVariables.1.0.0-rc2-20812.nupkg.sha512",
+        "Microsoft.Extensions.Configuration.EnvironmentVariables.nuspec",
+        "lib/net451/Microsoft.Extensions.Configuration.EnvironmentVariables.dll",
+        "lib/net451/Microsoft.Extensions.Configuration.EnvironmentVariables.xml",
+        "lib/netstandard1.3/Microsoft.Extensions.Configuration.EnvironmentVariables.dll",
+        "lib/netstandard1.3/Microsoft.Extensions.Configuration.EnvironmentVariables.xml"
       ]
     },
     "Microsoft.Extensions.DependencyInjection/1.0.0-rc2-20812": {
@@ -7374,6 +7398,7 @@
     "": [
       "Microsoft.AspNetCore.Server.Kestrel >= 1.0.0-*",
       "Microsoft.AspNetCore.StaticFiles >= 1.0.0-*",
+      "Microsoft.Extensions.Configuration.EnvironmentVariables >= 1.0.0-*",
       "Microsoft.NETCore.App >= 1.0.0-*"
     ],
     ".NETCoreApp,Version=v1.0": []
