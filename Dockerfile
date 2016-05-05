@@ -11,6 +11,9 @@ FROM tonysneed/dotnet-preview:1.0.0-rc2-002659
 
 MAINTAINER Anthony Sneed
 
+# Required for dotnet-watch to detect file changes
+ENV USE_POLLING_FILE_WATCHER=1
+
 # Copy files to app directory
 COPY . /app
 

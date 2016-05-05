@@ -18,11 +18,6 @@
 4. Open a browser: `http://192.168.99.100:5000`
   - You should see: **Hello World!**
 
-### **NOTE: Currently donet watch is *not* detecting file changes.**
-  - Dnx-watch required the following environment variable to detect file changes:
-    + ```ENV MONO_MANAGED_WATCHER 1```
-
 5. You can now modify the code in `Startup.Configure` to return a different string
   - If you refresh the browser, you should see the new string displayed
-
 
